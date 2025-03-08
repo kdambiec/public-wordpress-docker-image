@@ -30,13 +30,11 @@ RUN apt install wget
 RUN wget https://wordpress.org/wordpress-6.7.2.tar.gz -O /tmp/wordpress.tar.gz
 RUN tar -zxvf /tmp/wordpress.tar.gz -C /var/www
 
-# Wordpress Setup
-RUN chown -R www-data:www-data /var/www/wordpress
-
 # Expose port 80 for NGINX
 EXPOSE 80
 
-RUN chown -R www-data:www-data /var/www/html
+# Wordpress Setup
+RUN chown -R www-data:www-data /var/www/wordpress
 
 # Set up a volume for wordpress
 VOLUME /var/www/wordpress
